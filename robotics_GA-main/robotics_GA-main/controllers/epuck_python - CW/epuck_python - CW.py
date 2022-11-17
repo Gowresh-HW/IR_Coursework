@@ -21,7 +21,7 @@ class Controller:
         self.number_input_layer = 11
         # Example with one hidden layers: self.number_hidden_layer = [5]
         # Example with two hidden layers: self.number_hidden_layer = [7,5]
-        self.number_hidden_layer = [5] 
+        self.number_hidden_layer = [] 
         self.number_output_layer = 2
         
         # Create a list with the number of neurons per layer

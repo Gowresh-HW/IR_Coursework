@@ -35,8 +35,8 @@ class SupervisorGA:
         self.emitterData = ""
         
         ### Define here the GA Parameters
-        self.num_generations = 10
-        self.num_population = 10
+        self.num_generations = 100
+        self.num_population = 1
         self.num_elite = 7
         
         # size of the genotype variable
