@@ -4,6 +4,7 @@ from controller import Display
 
 import numpy as np
 import ga,os,sys,struct
+import math
 
 class SupervisorGA:
     def __init__(self):
@@ -35,9 +36,9 @@ class SupervisorGA:
         self.emitterData = ""
         
         ### Define here the GA Parameters
-        self.num_generations = 100
-        self.num_population = 1
-        self.num_elite = 7
+        self.num_generations = 15
+        self.num_population = 20
+        self.num_elite = 10
         
         # size of the genotype variable
         self.num_weights = 0
@@ -136,6 +137,17 @@ class SupervisorGA:
             
             # Check for Reward and add it to the fitness value here
             # Add your code here
+            target_right_x = 0.35
+            target_right_y = -0.15
+            
+            robot_pose = self.robot_node.getField("translation")
+            values = robot_pose.getSFVec3f()
+            robot_x = values[0]
+            robot_y = values[2]
+            reward_right = 1 - math.sqrt((target_right_x - robot_x)**2 + (target_right_y - robot_y)**2)
+            
+            fitness = fitness + reward_right
+            
             
             print("Fitness: {}".format(fitness))     
                         
@@ -168,6 +180,18 @@ class SupervisorGA:
             
             # Check for Reward and add it to the fitness value here
             # Add your code here
+            
+            target_left_x = -0.35
+            target_left_y = -0.15
+            
+            robot_pose = self.robot_node.getField("translation")
+            values = robot_pose.getSFVec3f()
+            robot_x = values[0]
+            robot_y = values[2]
+            reward_left = 1 - math.sqrt((target_left_x - robot_x)**2 + (target_left_y - robot_y)**2)
+            
+            fitness = fitness + reward_left
+            
             
             print("Fitness: {}".format(fitness))
             

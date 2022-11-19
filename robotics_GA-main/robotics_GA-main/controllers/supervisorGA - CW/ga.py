@@ -2,7 +2,7 @@ import numpy,random
 
 def population_reproduce(genotypes,elite):
     ### Define crossover rate (integer number between 0 and 100)
-    cp = 10
+    cp = 95
     genotypes_not_ranked = genotypes
     # Rank: lowest to highest fitness
     genotypes = rankPopulation(genotypes)
@@ -71,7 +71,7 @@ def mutation(child):
     # Changes a single gene randomly
     after_mutation = []
     ### Define mutation percentage (integer number between 0 and 100)
-    mp = 20
+    mp = 1
     for gene in range(len(child)):
         if(random.randint(1,100) < mp):
             # The random value to be added to the gene
