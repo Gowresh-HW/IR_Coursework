@@ -36,7 +36,7 @@ class SupervisorGA:
         self.emitterData = ""
         
         ### Define here the GA Parameters
-        self.num_generations = 50
+        self.num_generations = 100
         self.num_population = 10
         self.num_elite = 5
         
@@ -146,7 +146,7 @@ class SupervisorGA:
             robot_y = values[2]
             reward_right = 1 - math.sqrt((target_right_x - robot_x)**2 + (target_right_y - robot_y)**2)
             
-            fitness = fitness + reward_right
+            fitness = fitness * reward_right
             
             
             print("Fitness: {}".format(fitness))     
@@ -190,7 +190,7 @@ class SupervisorGA:
             robot_y = values[2]
             reward_left = 1 - math.sqrt((target_left_x - robot_x)**2 + (target_left_y - robot_y)**2)
             
-            fitness = fitness + reward_left
+            fitness = fitness * reward_left
             
             
             print("Fitness: {}".format(fitness))
